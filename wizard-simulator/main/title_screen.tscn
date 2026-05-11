@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cw7t70swcy2s6"]
+
+[ext_resource type="Script" uid="uid://bf8vb6y5vwn5n" path="res://main/title_screen.gd" id="1_c311y"]
+[ext_resource type="Texture2D" uid="uid://6tqxdsfkb4kl" path="res://assets/sky.png" id="1_e5l7q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c311y"]
+font_size = 72
+font_color = Color(0.50292575, 0.22209889, 0.7414197, 1)
+outline_size = 17
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_88bax"]
+font_size = 48
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="TitleScreen" type="Control" unique_id=595421467]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c311y")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1555640031]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e5l7q")
+stretch_mode = 6
+
+[node name="Title" type="Label" parent="." unique_id=133200035]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -299.0
+offset_top = -49.5
+offset_right = 299.0
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Wizard Simulator"
+label_settings = SubResource("LabelSettings_c311y")
+
+[node name="Message" type="Label" parent="." unique_id=185290200]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -221.5
+offset_top = -67.0
+offset_right = 221.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press Space to Play"
+label_settings = SubResource("LabelSettings_88bax")

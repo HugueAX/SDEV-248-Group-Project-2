@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://bd63b256hfrq8"]
+
+[ext_resource type="Script" uid="uid://c7ymy161jr3mi" path="res://enemies/enemy.gd" id="1_7frlh"]
+[ext_resource type="Texture2D" uid="uid://cxj5iit4t3uto" path="res://assets/rat animation.png" id="1_fw1ev"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fw1ev"]
+size = Vector2(50, 22)
+
+[sub_resource type="Animation" id="Animation_7frlh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_orwns"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a6vjd"]
+_data = {
+&"RESET": SubResource("Animation_7frlh"),
+&"walk": SubResource("Animation_orwns")
+}
+
+[node name="Enemy" type="CharacterBody2D" unique_id=961579553 groups=["enemies"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_7frlh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=317263611]
+texture = ExtResource("1_fw1ev")
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=708584127]
+position = Vector2(-4, 21)
+shape = SubResource("RectangleShape2D_fw1ev")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1556809329]
+libraries/ = SubResource("AnimationLibrary_a6vjd")
+autoplay = &"walk"
